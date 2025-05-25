@@ -15,8 +15,8 @@ CREATE TABLE species(
 
 CREATE TABLE sightings(
     sighting_id SERIAL PRIMARY KEY,
-    ranger_id INTEGER REFERENCES rangers(ranger_id) NOT NULL,
-    species_id INTEGER REFERENCES species(species_id) NOT NULL,
+    ranger_id INTEGER REFERENCES rangers(ranger_id) ON DELETE CASCADE,
+    species_id INTEGER REFERENCES species(species_id) ON DELETE CASCADE,
     sighting_time TIMESTAMP NOT NULL,
     location VARCHAR(30) NOT NULL,
     notes TEXT
@@ -27,6 +27,7 @@ INSERT INTO rangers (name,region) VALUES
     ('Alice Green','Northern Hills'),
     ('Bob White','River Delta '),
     ('Carol King','Mountain Range');
+
 
 ----Insert data to species table
 INSERT INTO species (common_name,scientific_name,discovery_date,conservation_status) VALUES 
@@ -99,4 +100,5 @@ DELETE from rangers
     WHERE NOT EXISTS (
         SELECT * from sightings 
          WHERE rangers.ranger_id=ranger_id);
+
 
