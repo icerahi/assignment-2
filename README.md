@@ -22,7 +22,7 @@ CREATE TABLE book (
    author_id INT REFERENCES author(id)
 );
 ```
-
+এখানে `author` এবং `book` টেবিলের ভিতরে `author_id` ফরেন কি যেটা হয়ে `author` টেবিল এর `id` কে রেফার করার মাধ্যমে সম্পর্ক স্থাপন হয়েছে । 
 ---
 
 ## 2. What is the difference between the _VARCHAR_ and _CHAR_ data types?
@@ -55,7 +55,7 @@ CREATE TABLE book (
 SELECT * FROM employees
 WHERE salary > 50000 AND department_id = 3;
 ```
-
+এখানে where দিয়ে কন্ডিশন এর মাধ্যমে শুধু ঐ রেকর্ড গুলো দেখাবে যেগুলোর `salary` ৫ ০ ০ ০ ০  থেকে বেশি এবং `department_id` ৩। 
 ---
 
 ## 4. What are the LIMIT and OFFSET clauses used for?
@@ -74,7 +74,7 @@ WHERE salary > 50000 AND department_id = 3;
 SELECT * FROM products
 LIMIT 10 OFFSET 20;
 ```
-
+এখানে limit ১ ০ সেট করা হয়েছে তাই আমরা ১ ০  টি রেকর্ড দেখবো,সেই সাথে offset ২ ০ রাখার কারণে প্রথম ২ ০ টি রেকর্ড স্কিপ করে তার পর থেকে দেখাবে 
 ---
 
 ## 5. What is the significance of the JOIN operation, and how does it work in PostgreSQL?
@@ -100,6 +100,6 @@ FROM employees e
 JOIN departments d ON e.department_id = d.id;
 ```
 
-এখানে `employees` এবং `departments` টেবিলের মধ্যে সম্পর্ক আছে `department_id` এর মাধ্যমে। তাই JOIN করে আমরা এমপ্লয়ির নামের সাথে তার ডিপার্টমেন্টের নামও দেখাতে পারছি।
+এখানে `employees` এবং `departments` টেবিলের মধ্যে সম্পর্ক আছে `department_id` এর মাধ্যমে। তাই JOIN করে আমরা employee নাম ও departments নাম দেখতে পারবো ভিন্ন দুইটি টেবিল থাকার পরেও। 
 
 ---
